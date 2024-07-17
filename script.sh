@@ -8,7 +8,7 @@ deb [arch=amd64 trusted=yes] http://dl.astralinux.ru/astra/stable/1.7_x86-64/rep
 sudo apt install -qy debootstrap
 
 sudo echo "#!/bin/bash
-debootstrap --include ncurses-term,locales,gawk,lsb-release,acl --components=main,contrib,non-free 1.7_x86-64 \$1 http://repo.inter.sibghk.ru/repo/base_updated_1.7.5" &> ~/makeastra
+debootstrap --include ncurses-term,locales,gawk,lsb-release,acl --components=main,contrib,non-free 1.7_x86-64 \$1 http://repo.inter.sibghk.ru/repo/base_updated_1.7.5" > ~/makeastra
 
 sudo chmod +x ~/makeastra
 
@@ -21,7 +21,7 @@ sudo mkdir ~/docker_astra
 sudo cp /etc/apt/sources.list.d/sources_last_astra.list ~/docker_astra/etc/apt/sources.list
 
 sudo echo "#!/bin/bash
-tar -C \$1 -cpf - . | docker import - \$2 --change \"ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" --change 'CMD [\"/bin/bash\"]' --change \"ENV LANG=ru_RU.UTF-8\"" &> ~/docker_import
+tar -C \$1 -cpf - . | docker import - \$2 --change \"ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" --change 'CMD [\"/bin/bash\"]' --change \"ENV LANG=ru_RU.UTF-8\"" > ~/docker_import
 
 sudo chmod +x ~/docker_import
 
